@@ -1,11 +1,76 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Welcome to Ron's Dynamic Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: rgba(255,255,255,0.9);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+            padding: 40px 60px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 16px;
+        }
+        #dynamic-message {
+            color: #0077ff;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            min-height: 2em;
+        }
+        .btn {
+            margin-top: 32px;
+            padding: 12px 32px;
+            background: #0077ff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: #005fa3;
+        }
+    </style>
 </head>
 <body>
-    <h1>hello</h1>
+    <div class="container">
+        <h1>Welcome to Ron's Dynamic Website!</h1>
+        <div id="dynamic-message">Loading message...</div>
+        <button class="btn" onclick="showRandomMessage()">Show Another Message</button>
+    </div>
+    <script>
+        const messages = [
+            "Explore amazing features!",
+            "Enjoy your stay!",
+            "Discover something new every day!",
+            "Your journey starts here!",
+            "Dynamic content just for you!",
+            "Welcome to the future of web!"
+        ];
+        function showRandomMessage() {
+            const idx = Math.floor(Math.random() * messages.length);
+            document.getElementById('dynamic-message').textContent = messages[idx];
+        }
+        // Show a random message on load
+        window.onload = showRandomMessage;
+    </script>
 </body>
 </html>
